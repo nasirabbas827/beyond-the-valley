@@ -9,6 +9,9 @@
         <a class="nav-link" href="update_admin.php">Update Profile</a>
       </li>
       <li class="nav-item ">
+        <a class="nav-link" href="view_users.php">View Users</a>
+      </li>
+      <li class="nav-item ">
         <a class="nav-link" href="add_places.php">Add Places</a>
       </li>
       <li class="nav-item ">

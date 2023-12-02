@@ -9,12 +9,12 @@ if (!isset($_SESSION["usertype"]) || $_SESSION["usertype"] !== "admin") {
 }
 
 // Fetch data for dashboard
-$totalUsers = 0;
-$totalQueriesForReply = 0;
-
 $totalUsers = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS total FROM users"))['total'];
+$totalPlaces = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS total FROM place"))['total'];
+$totalHotels = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS total FROM hotel"))['total'];
+$totalPendingBookings = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS total FROM bookings WHERE status = 'Pending'"))['total'];
+$totalBookings = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS total FROM bookings"))['total'];
 $totalQueriesForReply = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS total FROM messages WHERE reply_text IS NULL"))['total'];
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,7 +23,7 @@ $totalQueriesForReply = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
@@ -42,49 +42,49 @@ include('admin_navbar.php');
                 </div>
             </div>
         </div>
-        
-        <!-- Total Categories Card -->
+
+        <!-- Total Places Card -->
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Total Categories</h5>
-                    <p class="card-text"><?php echo $totalCategories; ?></p>
+                    <h5 class="card-title">Total Places</h5>
+                    <p class="card-text"><?php echo $totalPlaces; ?></p>
                 </div>
             </div>
         </div>
-        
-        <!-- Total Gifts Card -->
+
+        <!-- Total Hotels Card -->
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Total Gifts</h5>
-                    <p class="card-text"><?php echo $totalgifts; ?></p>
+                    <h5 class="card-title">Total Hotels</h5>
+                    <p class="card-text"><?php echo $totalHotels; ?></p>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <div class="row mt-4">
-        <!-- Total Order Card -->
+        <!-- Total Pending Bookings Card -->
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Total Orders</h5>
-                    <p class="card-text"><?php echo $totalorders; ?></p>
+                    <h5 class="card-title">Total Pending Bookings</h5>
+                    <p class="card-text"><?php echo $totalPendingBookings; ?></p>
                 </div>
             </div>
         </div>
-        
-        <!-- Total Pending Order Card -->
+
+        <!-- Total Bookings Card -->
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Total Pending Orders</h5>
-                    <p class="card-text"><?php echo $totalPendingorders; ?></p>
+                    <h5 class="card-title">Total Bookings</h5>
+                    <p class="card-text"><?php echo $totalBookings; ?></p>
                 </div>
             </div>
         </div>
-        
+
         <!-- Total Queries for Reply Card -->
         <div class="col-md-4">
             <div class="card">
