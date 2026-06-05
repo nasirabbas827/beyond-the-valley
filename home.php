@@ -141,7 +141,7 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLMaDWCs_4X1m9hecvyhUt-6k4qxQfiWU&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_OWN_API_KEY&callback=initMap" async defer></script>
 
     <!-- Include any additional styles or scripts here -->
     <style>
